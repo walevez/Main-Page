@@ -1,853 +1,2827 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Walter Chavez — Business Analyst | Process Improvement | Data Analytics</title>
-<meta name="description" content="Portfolio de Walter Emanuel Chavez — Business Analyst orientado a mejora de procesos, Business Intelligence y Data Analytics.">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #080c0e;
-    --surface: #0e1417;
-    --surface2: #141b1f;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.12);
-    --teal: #1dc9a0;
-    --teal-dim: rgba(29,201,160,0.1);
-    --text-primary: #f0ede8;
-    --text-secondary: #7a8a8f;
-    --text-muted: #3d4f55;
-    --font-display: 'DM Serif Display', serif;
-    --font-mono: 'Space Mono', monospace;
-    --font-body: 'Outfit', sans-serif;
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.25rem 4rem;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(8,12,14,0.9); backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-  }
-  .nav-logo { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; letter-spacing: 0.2em; color: var(--text-primary); text-decoration: none; }
-  .nav-logo span { color: var(--teal); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--teal); }
-  .nav-cta { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); border: 1px solid var(--teal); padding: 0.5rem 1.1rem; text-decoration: none; transition: all 0.2s; }
-  .nav-cta:hover { background: var(--teal); color: var(--bg); }
+    <title>Walter Chavez — Business Analyst | Process Improvement | Data Analytics</title>
 
-  /* HERO */
-  .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 4rem 4rem; position: relative; overflow: hidden; }
-  .hero-grid {
-    position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(29,201,160,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(29,201,160,0.035) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse 70% 70% at 65% 45%, black 20%, transparent 75%);
-  }
-  .hero-orb {
-    position: absolute; right: 6%; top: 22%; width: 480px; height: 480px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(29,201,160,0.07) 0%, transparent 70%);
-    border: 0.5px solid rgba(29,201,160,0.12);
-    animation: orb-pulse 7s ease-in-out infinite;
-  }
-  .hero-orb::before { content: ''; position: absolute; inset: 50px; border-radius: 50%; border: 0.5px solid rgba(29,201,160,0.08); }
-  .hero-orb::after { content: ''; position: absolute; inset: 110px; border-radius: 50%; border: 0.5px solid rgba(29,201,160,0.06); }
-  @keyframes orb-pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.04);opacity:0.75} }
-  .hero-content { position: relative; z-index: 1; max-width: 660px; }
-  .hero-tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
-  .hero-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--teal); }
-  .hero-title { font-family: var(--font-display); font-size: clamp(2.8rem, 5.5vw, 5rem); line-height: 1.06; font-weight: 400; margin-bottom: 0.25rem; }
-  .hero-title em { font-style: italic; color: var(--teal); }
-  .hero-sub { font-size: 1.1rem; color: var(--text-secondary); font-weight: 300; max-width: 460px; margin: 1.75rem 0 2.5rem; line-height: 1.7; }
-  .hero-actions { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; }
-  .btn-primary { background: var(--teal); color: var(--bg); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.85rem 1.85rem; text-decoration: none; font-weight: 700; transition: opacity 0.2s; display: inline-block; }
-  .btn-primary:hover { opacity: 0.82; }
-  .btn-outline { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary); border: 0.5px solid var(--border2); padding: 0.85rem 1.85rem; text-decoration: none; transition: all 0.2s; }
-  .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
-  .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2.25rem; border-top: 0.5px solid var(--border); flex-wrap: wrap; }
-  .stat-num { font-family: var(--font-display); font-size: 2rem; color: var(--text-primary); line-height: 1; }
-  .stat-num span { color: var(--teal); }
-  .stat-label { font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.3rem; font-weight: 300; }
-  .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; animation: float 2.5s ease-in-out infinite; }
-  .scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, var(--teal), transparent); }
-  @keyframes float { 0%,100%{opacity:0.4;transform:translateX(-50%) translateY(0)} 50%{opacity:1;transform:translateX(-50%) translateY(-5px)} }
+    <meta
+        name="description"
+        content="Portfolio de Walter Emanuel Chavez — Business Analyst orientado a mejora de procesos, Business Intelligence y Data Analytics."
+    >
 
-  /* SECTIONS */
-  section { padding: 5.5rem 4rem; }
-  .section-tag { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.85rem; }
-  .section-title { font-family: var(--font-display); font-size: clamp(1.9rem, 3.2vw, 2.8rem); font-weight: 400; line-height: 1.15; margin-bottom: 0.75rem; }
-  .section-title em { font-style: italic; color: var(--teal); }
-  .divider { width: 36px; height: 1px; background: var(--teal); margin: 1.75rem 0; }
+    <!-- Tipografías -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-  /* ABOUT */
-  .about { background: var(--surface); }
-  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
-  .about-desc { color: var(--text-secondary); font-weight: 300; line-height: 1.8; margin-bottom: 1rem; }
-  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 2rem; }
-  .skill-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.84rem; color: var(--text-secondary); }
-  .skill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
-  .stack-panel { background: var(--surface2); border: 0.5px solid var(--border); padding: 1.75rem; }
-  .panel-label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.25rem; }
-  .quote-block { margin-top: 1rem; padding: 1.25rem 1.5rem; border: 0.5px solid var(--border); display: flex; gap: 0.75rem; align-items: flex-start; }
-  .quote-mark { color: var(--teal); font-family: var(--font-display); font-size: 1.75rem; line-height: 1; }
-  .quote-text { font-family: var(--font-display); font-style: italic; color: var(--text-secondary); font-size: 1rem; line-height: 1.55; }
+    <style>
 
-  /* PROJECTS */
-  .projects-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.75rem; flex-wrap: wrap; gap: 1rem; }
-  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-  .project-card { background: var(--surface); border: 0.5px solid var(--border); padding: 1.85rem; position: relative; overflow: hidden; transition: border-color 0.3s; display: flex; flex-direction: column; }
-  .project-card:hover { border-color: var(--border2); }
-  .project-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
-  .project-bar { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
-  .project-card:hover .project-bar { transform: scaleX(1); }
-  .proj-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1.1rem; }
-  .proj-tag { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.7rem; border: 0.5px solid var(--border2); color: var(--text-secondary); }
-  .proj-tag.accent { border-color: rgba(29,201,160,0.45); color: var(--teal); }
-  .proj-title { font-family: var(--font-display); font-size: 1.45rem; font-weight: 400; margin-bottom: 0.65rem; line-height: 1.25; }
-  .proj-desc { font-size: 0.875rem; color: var(--text-secondary); font-weight: 300; line-height: 1.7; margin-bottom: 1.25rem; flex-grow: 1; }
-  .proj-metrics { display: flex; gap: 1.75rem; margin-bottom: 1.5rem; }
-  .metric-val { font-family: var(--font-mono); font-size: 1.2rem; font-weight: 700; color: var(--teal); }
-  .metric-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem; }
-  .proj-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); text-decoration: none; border: 0.5px solid rgba(29,201,160,0.35); padding: 0.55rem 1rem; transition: all 0.2s; margin-top: auto; align-self: flex-start; }
-  .proj-link:hover { background: var(--teal-dim); }
-  .proj-visual { background: var(--surface2); border: 0.5px solid var(--border); height: 200px; display: flex; align-items: flex-end; padding: 1.25rem; gap: 5px; overflow: hidden; }
-  .proj-visual.screenshot { align-items: stretch; padding: 0; position: relative; }
-  .proj-visual.screenshot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0.92; transition: opacity 0.3s, transform 0.4s; }
-  .project-card:hover .proj-visual.screenshot img { opacity: 1; transform: scale(1.02); }
-  .proj-visual.screenshot::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, var(--surface) 0%, transparent 40%); pointer-events: none; }
-  .project-card.featured .proj-visual { height: 260px; }
-  .bar-chart-bar { background: var(--teal-dim); border: 0.5px solid rgba(29,201,160,0.25); border-bottom: none; width: 16px; transition: background 0.3s; flex-shrink: 0; }
-  .bar-chart-bar.hi { background: rgba(29,201,160,0.3); }
-  .coming-soon { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; gap: 0.75rem; }
-  .coming-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: blink 2s ease-in-out infinite; }
-  @keyframes blink { 0%,100%{opacity:0.3} 50%{opacity:1} }
+        /* =========================================================
+           RESET
+        ========================================================= */
 
-  /* CONTACT */
-  .contact-content { max-width: 560px; }
-  .contact-info { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
-  .contact-item { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; color: var(--text-secondary); }
-  .contact-icon { width: 34px; height: 34px; border: 0.5px solid var(--border2); display: flex; align-items: center; justify-content: center; color: var(--teal); font-size: 0.85rem; flex-shrink: 0; font-family: var(--font-mono); }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  /* EDUCATION BLOCK */
-  .edu-block { display: flex; gap: 0; margin: 1.75rem 0 1.5rem; border: 0.5px solid rgba(29,201,160,0.3); background: rgba(29,201,160,0.04); position: relative; overflow: hidden; }
-  .edu-block::after { content: ''; position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(29,201,160,0.08) 0%, transparent 70%); pointer-events: none; }
-  .edu-block-accent { width: 3px; background: var(--teal); flex-shrink: 0; }
-  .edu-block-inner { padding: 1.25rem 1.35rem; flex: 1; }
-  .edu-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
-  .edu-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--text-primary); line-height: 1.25; margin-bottom: 0.3rem; }
-  .edu-inst { font-size: 0.82rem; color: var(--text-secondary); font-weight: 300; margin-bottom: 0.75rem; }
-  .edu-meta { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem; }
-  .edu-badge { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.65rem; background: rgba(29,201,160,0.12); color: var(--teal); border: 0.5px solid rgba(29,201,160,0.35); }
-  .edu-year { font-family: var(--font-mono); font-size: 0.58rem; color: var(--text-muted); letter-spacing: 0.1em; }
-  .edu-subjects { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .edu-subjects span { font-family: var(--font-mono); font-size: 0.52rem; padding: 0.15rem 0.5rem; border: 0.5px solid var(--border2); color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+        :root {
 
-  /* EDU CARD — before certs section */
-  .edu-card { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; background: var(--surface2); border: 0.5px solid rgba(29,201,160,0.25); padding: 2rem 2.5rem; margin-bottom: 2.5rem; position: relative; overflow: hidden; }
-  .edu-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--teal); }
-  .edu-card::after { content: ''; position: absolute; bottom: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(29,201,160,0.06) 0%, transparent 70%); pointer-events: none; }
-  .edu-card-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
-  .edu-card-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; line-height: 1.2; margin-bottom: 0.4rem; }
-  .edu-card-inst { font-size: 0.9rem; color: var(--text-secondary); font-weight: 300; margin-bottom: 1rem; }
-  .edu-card-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; }
-  .edu-card-tags span { font-family: var(--font-mono); font-size: 0.55rem; padding: 0.2rem 0.6rem; border: 0.5px solid var(--border2); color: var(--text-secondary); letter-spacing: 0.08em; text-transform: uppercase; }
-  .edu-card-right { text-align: right; }
-  .edu-card-year { font-family: var(--font-display); font-size: 2.5rem; color: var(--teal); opacity: 0.25; line-height: 1; }
-  .edu-card-status { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.85rem; border: 0.5px solid rgba(29,201,160,0.4); color: var(--teal); display: inline-block; margin-top: 0.5rem; }
+            /* Fondos */
+            --bg: #0f1720;
+            --surface: #151e29;
+            --surface-2: #1a2532;
+            --surface-hover: #1e2b39;
 
-  /* CERTIFICATIONS — badge wall */
-  .cert-filter { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 0.85rem; border: 0.5px solid var(--border2); background: transparent; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
-  .cert-filter.active, .cert-filter:hover { border-color: var(--teal); color: var(--teal); }
-  .badge-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
-  .badge-card { position: relative; background: var(--surface2); border: 0.5px solid var(--border); padding: 1rem 1.1rem; text-decoration: none; overflow: hidden; transition: border-color 0.25s, transform 0.25s; display: flex; flex-direction: column; gap: 0.4rem; }
-  .badge-card:hover { border-color: var(--border2); transform: translateY(-2px); }
-  .badge-card.featured-cert { border-color: rgba(29,201,160,0.3); }
-  .badge-card.hidden { display: none; }
-  .badge-top { display: flex; align-items: center; justify-content: space-between; }
-  .badge-pill { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.18rem 0.55rem; font-weight: 700; }
-  .badge-date { font-family: var(--font-mono); font-size: 0.55rem; color: var(--text-muted); }
-  .badge-name { font-size: 0.82rem; font-weight: 500; color: var(--text-primary); line-height: 1.35; margin-top: 0.25rem; flex-grow: 1; }
-  .badge-skills { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.35rem; }
-  .badge-skills span { font-family: var(--font-mono); font-size: 0.5rem; padding: 0.12rem 0.45rem; border: 0.5px solid var(--border2); color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
-  .badge-arrow { font-family: var(--font-mono); font-size: 0.6rem; color: var(--teal); margin-top: 0.6rem; opacity: 0; transform: translateX(-4px); transition: all 0.2s; }
-  .badge-card:hover .badge-arrow { opacity: 1; transform: translateX(0); }
-  .badge-glow { position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; border-radius: 50%; opacity: 0; transition: opacity 0.35s; pointer-events: none; }
-  .badge-card:hover .badge-glow { opacity: 1; }
-  .platzi-badge { background: rgba(152,202,63,0.12); color: #98ca3f; border: 0.5px solid rgba(152,202,63,0.3); }
-  .google-badge { background: rgba(66,133,244,0.12); color: #4285f4; border: 0.5px solid rgba(66,133,244,0.3); }
-  .coderhouse-badge { background: rgba(255,90,31,0.12); color: #ff5a1f; border: 0.5px solid rgba(255,90,31,0.3); }
-  .cisco-badge { background: rgba(0,188,212,0.12); color: #00bcd4; border: 0.5px solid rgba(0,188,212,0.3); }
-  .platzi-glow { background: radial-gradient(circle, rgba(152,202,63,0.18) 0%, transparent 70%); }
-  .google-glow { background: radial-gradient(circle, rgba(66,133,244,0.18) 0%, transparent 70%); }
-  .coderhouse-glow { background: radial-gradient(circle, rgba(255,90,31,0.18) 0%, transparent 70%); }
-  .cisco-glow { background: radial-gradient(circle, rgba(0,188,212,0.18) 0%, transparent 70%); }
-  .cert-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); margin-top: 2.5rem; }
-  .cert-stat { background: var(--surface2); padding: 1.25rem; text-align: center; }
-  .cert-stat-num { font-family: var(--font-display); font-size: 1.6rem; color: var(--teal); line-height: 1; margin-bottom: 0.3rem; }
-  .cert-stat-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--text-muted); }
-  @keyframes cert-in { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
-  .badge-card { animation: cert-in 0.3s ease both; }
+            /* Bordes */
+            --border: #263544;
+            --border-strong: #35485b;
 
-  /* FOOTER */
-  footer { padding: 2rem 4rem; border-top: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-  .footer-logo { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; color: var(--text-muted); }
-  .footer-logo span { color: var(--teal); }
-  .footer-copy { font-size: 0.76rem; color: var(--text-muted); }
-  .footer-links { display: flex; gap: 1.5rem; }
-  .footer-links a { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--teal); }
+            /* Acento */
+            --accent: #6f8fa8;
+            --accent-hover: #89a5ba;
+            --accent-soft: rgba(111, 143, 168, 0.10);
 
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .hero { padding: 7rem 1.5rem 3rem; }
-    .hero-orb { display: none; }
-    section { padding: 4rem 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card.featured { grid-column: auto; grid-template-columns: 1fr; }
-    .proj-visual { display: none; }
-    .hero-stats { gap: 2rem; }
-    .edu-card { grid-template-columns: 1fr; gap: 0.75rem; padding: 1.25rem; }
-    .edu-card-right { text-align: left; }
-    .badge-wall { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-    .cert-stats { grid-template-columns: repeat(2, 1fr); }
-    footer { padding: 1.5rem; flex-direction: column; text-align: center; }
-  }
+            /* Texto */
+            --text-primary: #f1f4f6;
+            --text-secondary: #a9b4be;
+            --text-muted: #71808d;
 
-  /* STACK GROUPS */
-  .stack-group { padding: 0.95rem 0; border-bottom: 0.5px solid var(--border); }
-  .stack-group:last-child { border-bottom: none; padding-bottom: 0; }
-  .stack-group-title { display: block; font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.6rem; }
-  .stack-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-  .stack-tags span {
-    font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.08em;
-    text-transform: uppercase; padding: 0.22rem 0.62rem;
-    border: 0.5px solid var(--border2); color: var(--text-muted);
-  }
+            /* Fuentes */
+            --font-body: "Inter", sans-serif;
+            --font-mono: "IBM Plex Mono", monospace;
 
-  /* EXPERIENCE */
-  .experience-card {
-    background: var(--surface); border: 0.5px solid var(--border);
-    padding: 2rem; margin-top: 2rem; position: relative; overflow: hidden;
-  }
-  .experience-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: 2px; background: var(--teal);
-  }
-  .experience-head {
-    display: flex; justify-content: space-between; gap: 2rem;
-    align-items: flex-start; margin-bottom: 1.25rem;
-  }
-  .experience-role {
-    font-family: var(--font-display); font-size: 1.6rem; line-height: 1.2;
-  }
-  .experience-company { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.25rem; }
-  .experience-period {
-    font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--teal); border: 0.5px solid rgba(29,201,160,0.35);
-    padding: 0.4rem 0.8rem; white-space: nowrap;
-  }
-  .experience-summary {
-    max-width: 780px; color: var(--text-secondary); font-weight: 300;
-    line-height: 1.8; margin-bottom: 1.8rem;
-  }
-  .experience-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
-    background: var(--border);
-  }
-  .experience-item {
-    background: var(--surface2); padding: 1.4rem; display: flex; gap: 1rem;
-  }
-  .experience-index {
-    font-family: var(--font-mono); font-size: 0.6rem; color: var(--teal); margin-top: 0.25rem;
-  }
-  .experience-item h3 {
-    font-size: 0.95rem; font-weight: 500; margin-bottom: 0.35rem;
-  }
-  .experience-item p {
-    color: var(--text-secondary); font-size: 0.82rem; font-weight: 300; line-height: 1.65;
-  }
+            /* Layout */
+            --max-width: 1180px;
+            --radius: 8px;
+        }
 
-  .cert-intro {
-    color: var(--text-secondary); font-size: 0.9rem; font-weight: 300;
-    max-width: 650px; margin-top: 0.6rem;
-  }
+        html {
+            scroll-behavior: smooth;
+        }
 
-  @media (max-width: 768px) {
-    .experience-head { flex-direction: column; gap: 1rem; }
-    .experience-grid { grid-template-columns: 1fr; }
-  }
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-</style>
+        a {
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+
+        /* =========================================================
+           NAV
+        ========================================================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 4rem;
+
+            background: rgba(15, 23, 32, 0.93);
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+            margin-left: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.76rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--text-secondary);
+            text-decoration: none;
+
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 0.55rem 1rem;
+
+            border: 1px solid var(--border-strong);
+            border-radius: 5px;
+
+            font-size: 0.76rem;
+            font-weight: 500;
+
+            color: var(--text-primary);
+            text-decoration: none;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--surface-2);
+            border-color: var(--accent);
+        }
+
+
+        /* =========================================================
+           CONTENEDOR GENERAL
+        ========================================================= */
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 6rem 4rem;
+        }
+
+        .section-alt {
+            background: var(--surface);
+        }
+
+
+        /* =========================================================
+           ENCABEZADOS DE SECCIÓN
+        ========================================================= */
+
+        .section-tag {
+            margin-bottom: 0.65rem;
+
+            font-family: var(--font-mono);
+            font-size: 0.67rem;
+            font-weight: 500;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+
+            color: var(--accent);
+        }
+
+        .section-title {
+            max-width: 760px;
+
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.15;
+
+            color: var(--text-primary);
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        .section-description {
+            max-width: 650px;
+            margin-top: 1rem;
+
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .section-divider {
+            width: 48px;
+            height: 2px;
+
+            margin-top: 1.5rem;
+
+            background: var(--accent);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 10rem;
+            padding-bottom: 6rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-tag {
+            margin-bottom: 1.7rem;
+
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+
+            color: var(--accent);
+        }
+
+        .hero-title {
+            max-width: 900px;
+
+            font-size: clamp(3rem, 6vw, 5.6rem);
+            font-weight: 600;
+            letter-spacing: -0.055em;
+            line-height: 1.03;
+
+            color: var(--text-primary);
+        }
+
+        .hero-title span {
+            display: block;
+            color: var(--accent);
+        }
+
+        .hero-sub {
+            max-width: 680px;
+            margin-top: 2rem;
+
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            font-weight: 300;
+            line-height: 1.8;
+
+            color: var(--text-secondary);
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+
+            margin-top: 2.4rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 46px;
+            padding: 0.75rem 1.25rem;
+
+            border-radius: 5px;
+
+            font-size: 0.78rem;
+            font-weight: 600;
+
+            text-decoration: none;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border: 1px solid var(--accent);
+            color: #0f1720;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border-strong);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-2);
+            border-color: var(--accent);
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+
+            max-width: 760px;
+
+            margin-top: 4rem;
+            padding-top: 2rem;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-stat {
+            min-width: 180px;
+            padding-right: 3rem;
+            margin-right: 3rem;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .hero-stat:last-child {
+            border-right: 0;
+            margin-right: 0;
+            padding-right: 0;
+        }
+
+        .stat-num {
+            font-size: 1.65rem;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+        }
+
+        .stat-num span {
+            color: var(--accent);
+        }
+
+        .stat-label {
+            margin-top: 0.2rem;
+
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+
+        /* =========================================================
+           SOBRE MÍ
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .about-text {
+            margin-top: 2rem;
+        }
+
+        .about-desc {
+            max-width: 680px;
+            margin-bottom: 1.1rem;
+
+            font-size: 0.97rem;
+            font-weight: 300;
+            line-height: 1.85;
+
+            color: var(--text-secondary);
+        }
+
+
+        /* =========================================================
+           EDUCACIÓN
+        ========================================================= */
+
+        .edu-block {
+            margin-top: 2rem;
+            padding: 1.5rem;
+
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: var(--radius);
+        }
+
+        .edu-label {
+            margin-bottom: 0.55rem;
+
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+
+            color: var(--accent);
+        }
+
+        .edu-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .edu-inst {
+            margin-top: 0.3rem;
+
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+        }
+
+        .edu-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+
+            margin-top: 1rem;
+        }
+
+        .edu-badge {
+            padding: 0.25rem 0.6rem;
+
+            border: 1px solid var(--border-strong);
+            border-radius: 4px;
+
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+
+            color: var(--accent);
+        }
+
+        .edu-year {
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            color: var(--text-muted);
+        }
+
+        .edu-subjects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+
+            margin-top: 1rem;
+        }
+
+        .edu-subjects span {
+            padding: 0.2rem 0.5rem;
+
+            border: 1px solid var(--border);
+            border-radius: 4px;
+
+            font-family: var(--font-mono);
+            font-size: 0.54rem;
+
+            color: var(--text-muted);
+        }
+
+
+        /* =========================================================
+           STACK / ÁREAS
+        ========================================================= */
+
+        .stack-panel {
+            padding: 1.75rem;
+
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .panel-label {
+            margin-bottom: 1rem;
+
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.11em;
+            text-transform: uppercase;
+
+            color: var(--accent);
+        }
+
+        .stack-group {
+            padding: 1rem 0;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stack-group:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .stack-group-title {
+            display: block;
+
+            margin-bottom: 0.65rem;
+
+            font-size: 0.8rem;
+            font-weight: 500;
+
+            color: var(--text-secondary);
+        }
+
+        .stack-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .stack-tags span {
+            padding: 0.2rem 0.5rem;
+
+            border: 1px solid var(--border);
+            border-radius: 4px;
+
+            font-family: var(--font-mono);
+            font-size: 0.54rem;
+
+            color: var(--text-muted);
+        }
+
+
+        /* =========================================================
+           FRASE
+        ========================================================= */
+
+        .quote-block {
+            margin-top: 1rem;
+            padding: 1.4rem 1.5rem;
+
+            border-left: 2px solid var(--accent);
+
+            font-size: 0.9rem;
+            line-height: 1.7;
+
+            color: var(--text-secondary);
+        }
+
+
+        /* =========================================================
+           EXPERIENCIA
+        ========================================================= */
+
+        .experience-card {
+            margin-top: 2.5rem;
+            padding: 2.25rem;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .section-alt .experience-card {
+            background: var(--surface-2);
+        }
+
+        .experience-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            gap: 2rem;
+
+            margin-bottom: 1.3rem;
+        }
+
+        .experience-role {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .experience-company {
+            margin-top: 0.25rem;
+
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .experience-period {
+            padding: 0.35rem 0.7rem;
+
+            border: 1px solid var(--border-strong);
+            border-radius: 4px;
+
+            font-family: var(--font-mono);
+            font-size: 0.61rem;
+            white-space: nowrap;
+
+            color: var(--accent);
+        }
+
+        .experience-summary {
+            max-width: 800px;
+            margin-bottom: 2rem;
+
+            font-size: 0.93rem;
+            font-weight: 300;
+            line-height: 1.8;
+
+            color: var(--text-secondary);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            overflow: hidden;
+        }
+
+        .experience-item {
+            display: flex;
+            gap: 1rem;
+
+            padding: 1.5rem;
+
+            background: var(--surface-2);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-item:nth-child(odd) {
+            border-right: 1px solid var(--border);
+        }
+
+        .experience-item:nth-last-child(-n+2) {
+            border-bottom: 0;
+        }
+
+        .section-alt .experience-item {
+            background: var(--surface);
+        }
+
+        .experience-index {
+            padding-top: 0.1rem;
+
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+
+            color: var(--accent);
+        }
+
+        .experience-item h3 {
+            margin-bottom: 0.4rem;
+
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .experience-item p {
+            font-size: 0.81rem;
+            line-height: 1.65;
+
+            color: var(--text-secondary);
+        }
+
+
+        /* =========================================================
+           PROYECTOS
+        ========================================================= */
+
+        .projects-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+
+            padding: 2.25rem;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-strong);
+        }
+
+        .project-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .proj-category {
+            margin-bottom: 0.8rem;
+
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+
+            color: var(--accent);
+        }
+
+        .proj-title {
+            margin-bottom: 0.75rem;
+
+            font-size: 1.55rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.25;
+        }
+
+        .proj-desc {
+            max-width: 640px;
+
+            margin-bottom: 1.5rem;
+
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.75;
+
+            color: var(--text-secondary);
+        }
+
+        .proj-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.25rem;
+
+            margin-bottom: 1.7rem;
+        }
+
+        .metric-val {
+            font-size: 1.2rem;
+            font-weight: 600;
+
+            color: var(--text-primary);
+        }
+
+        .metric-label {
+            margin-top: 0.1rem;
+
+            font-size: 0.67rem;
+            color: var(--text-muted);
+        }
+
+        .proj-link {
+            display: inline-flex;
+            align-items: center;
+
+            margin-top: auto;
+            padding: 0.55rem 0.85rem;
+
+            border: 1px solid var(--border-strong);
+            border-radius: 4px;
+
+            font-size: 0.72rem;
+            font-weight: 500;
+
+            color: var(--text-primary);
+            text-decoration: none;
+
+            transition:
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .proj-link:hover {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .proj-visual {
+            min-height: 260px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+
+            overflow: hidden;
+        }
+
+        .proj-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+
+            transition: transform 0.35s ease;
+        }
+
+        .project-card:hover .proj-visual img {
+            transform: scale(1.015);
+        }
+
+        .project-placeholder {
+            max-width: 280px;
+
+            padding: 2rem;
+
+            text-align: center;
+        }
+
+        .project-placeholder-title {
+            margin-bottom: 0.5rem;
+
+            font-size: 1rem;
+            font-weight: 600;
+
+            color: var(--text-secondary);
+        }
+
+        .project-placeholder-text {
+            font-size: 0.76rem;
+            line-height: 1.6;
+
+            color: var(--text-muted);
+        }
+
+        .project-data-labels {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+
+            margin-top: 1.2rem;
+        }
+
+        .project-data-labels span {
+            padding: 0.25rem 0.5rem;
+
+            border: 1px solid var(--border);
+            border-radius: 4px;
+
+            font-family: var(--font-mono);
+            font-size: 0.52rem;
+
+            color: var(--accent);
+        }
+
+
+        /* =========================================================
+           CERTIFICACIONES
+        ========================================================= */
+
+        .cert-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            gap: 2rem;
+
+            margin-bottom: 2.5rem;
+        }
+
+        .cert-intro {
+            max-width: 650px;
+
+            margin-top: 0.8rem;
+
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .cert-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .cert-filter {
+            padding: 0.42rem 0.7rem;
+
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+
+            font-family: var(--font-body);
+            font-size: 0.69rem;
+            font-weight: 500;
+
+            color: var(--text-muted);
+
+            cursor: pointer;
+
+            transition:
+                color 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .cert-filter:hover {
+            color: var(--text-primary);
+            border-color: var(--border-strong);
+        }
+
+        .cert-filter.active {
+            color: var(--text-primary);
+
+            background: var(--surface-2);
+            border-color: var(--accent);
+        }
+
+        .badge-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .badge-card {
+            min-height: 155px;
+
+            display: flex;
+            flex-direction: column;
+
+            padding: 1.2rem;
+
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            text-decoration: none;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .badge-card:hover {
+            background: var(--surface-hover);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .badge-card.hidden {
+            display: none;
+        }
+
+        .badge-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 0.8rem;
+
+            margin-bottom: 0.9rem;
+        }
+
+        .badge-pill {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+
+            color: var(--accent);
+        }
+
+        .badge-date {
+            font-family: var(--font-mono);
+            font-size: 0.54rem;
+
+            color: var(--text-muted);
+        }
+
+        .badge-name {
+            flex-grow: 1;
+
+            font-size: 0.84rem;
+            font-weight: 500;
+            line-height: 1.4;
+
+            color: var(--text-primary);
+        }
+
+        .badge-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+
+            margin-top: 0.75rem;
+        }
+
+        .badge-skills span {
+            padding: 0.15rem 0.38rem;
+
+            border: 1px solid var(--border);
+            border-radius: 3px;
+
+            font-family: var(--font-mono);
+            font-size: 0.48rem;
+
+            color: var(--text-muted);
+        }
+
+        .badge-arrow {
+            margin-top: 0.8rem;
+
+            font-size: 0.75rem;
+
+            color: var(--accent);
+        }
+
+
+        /* =========================================================
+           CONTACTO
+        ========================================================= */
+
+        .contact-content {
+            max-width: 720px;
+        }
+
+        .contact-text {
+            max-width: 620px;
+
+            margin-top: 1.5rem;
+
+            font-size: 0.95rem;
+            line-height: 1.8;
+
+            color: var(--text-secondary);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+
+            padding: 0.7rem 0.9rem;
+
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+
+            font-size: 0.78rem;
+
+            color: var(--text-secondary);
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--text-primary);
+        }
+
+        .contact-icon {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+
+            color: var(--accent);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            gap: 1rem;
+
+            padding: 2rem 4rem;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--text-muted);
+        }
+
+        .footer-logo {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.3rem;
+        }
+
+        .footer-links a {
+            font-size: 0.7rem;
+
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 5rem 1.5rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 9rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .proj-visual {
+                min-height: 230px;
+            }
+
+            footer {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .hero-title {
+                font-size: clamp(2.7rem, 13vw, 4rem);
+            }
+
+            .hero-stats {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+
+            .hero-stat {
+                margin: 0;
+                padding: 0 0 1.4rem;
+
+                border-right: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-stat:last-child {
+                padding-bottom: 0;
+                border-bottom: 0;
+            }
+
+            .experience-head {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-item {
+                border-right: 0 !important;
+                border-bottom: 1px solid var(--border) !important;
+            }
+
+            .experience-item:last-child {
+                border-bottom: 0 !important;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .proj-metrics {
+                gap: 1.5rem;
+            }
+
+            .proj-visual {
+                min-height: 200px;
+            }
+
+            .badge-wall {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
 
-<nav>
-  <a href="#inicio" class="nav-logo">WALTER<span>CHAVEZ</span></a>
-  <ul class="nav-links">
-    <li><a href="#sobre-mi">Sobre mí</a></li>
-    <li><a href="#experiencia">Experiencia</a></li>
-    <li><a href="#metodo">Método</a></li>
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#certificaciones">Formación</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <a href="https://www.linkedin.com/in/walevez/" target="_blank" rel="noopener noreferrer" class="nav-cta">LinkedIn →</a>
-</nav>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="hero-grid"></div>
-  <div class="hero-orb"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Business Analyst · Process Improvement · Data Analytics</div>
-    <h1 class="hero-title">
-      Transformo procesos<br>de negocio en<br><em>soluciones que<br>generan valor.</em>
-    </h1>
-    <p class="hero-sub">
-      Profesional con más de 15 años de experiencia en operaciones, administración y mejora de procesos. Conecto personas, procesos y tecnología para comprender problemas, optimizar circuitos y convertir datos en decisiones.
-    </p>
-    <div class="hero-actions">
-      <a href="#proyectos" class="btn-primary">Ver casos →</a>
-      <a href="#contacto" class="btn-outline">Contactame</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">15<span>+</span></div>
-        <div class="stat-label">Años de experiencia</div>
-      </div>
-      <div>
-        <div class="stat-num">100<span>%</span></div>
-        <div class="stat-label">Registros auditados</div>
-      </div>
-      <div>
-        <div class="stat-num">2<span>+</span></div>
-        <div class="stat-label">Casos publicados</div>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    Scroll
-  </div>
-</section>
+    <!-- =========================================================
+         NAV
+    ========================================================== -->
 
-<!-- ABOUT -->
-<section class="about" id="sobre-mi">
-  <div class="about-grid">
-    <div>
-      <div class="section-tag">// Sobre mí</div>
-      <h2 class="section-title">Negocio, procesos y <em>tecnología</em></h2>
-      <div class="divider"></div>
-      <p class="about-desc">
-        Soy Walter Emanuel Chavez. Durante mi carrera participé en la mejora de procesos administrativos y operativos, conciliación de información, gestión documental y soporte a la toma de decisiones.
-      </p>
-      <p class="about-desc">
-        Actualmente curso la Tecnicatura en Ciencias de Datos e Inteligencia Artificial y complemento mi experiencia con Business Analysis, SQL, Python, Power BI y automatización. Mi objetivo es actuar como puente entre el negocio y la tecnología.
-      </p>
+    <nav>
 
-      <div class="edu-block">
-        <div class="edu-block-accent"></div>
-        <div class="edu-block-inner">
-          <div class="edu-label">// Educación formal</div>
-          <div class="edu-title">Tecnicatura en Ciencias de Datos e IA</div>
-          <div class="edu-inst">Instituto Superior Santo Domingo · Tucumán, Argentina</div>
-          <div class="edu-meta">
-            <span class="edu-badge">4.º semestre · En curso</span>
-            <span class="edu-year">2025 – 2027</span>
-          </div>
-          <div class="edu-subjects">
-            <span>Business Analysis</span>
-            <span>Estadística</span>
-            <span>Bases de datos</span>
-            <span>Python</span>
-            <span>Visualización</span>
-            <span>IA aplicada</span>
-          </div>
+        <a href="#inicio" class="nav-logo">
+            WALTER<span>CHAVEZ</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#metodo">Método</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#certificaciones">Formación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <a
+            href="https://www.linkedin.com/in/walevez/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="nav-cta"
+        >
+            LinkedIn ↗
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="hero-tag">
+                    Business Analyst · Process Improvement · Data Analytics
+                </div>
+
+                <h1 class="hero-title">
+                    Transformo procesos de negocio en
+                    <span>soluciones que generan valor.</span>
+                </h1>
+
+                <p class="hero-sub">
+                    Profesional con más de 15 años de experiencia en operaciones,
+                    administración y mejora de procesos. Conecto personas, procesos
+                    y tecnología para comprender problemas, optimizar circuitos
+                    y convertir datos en decisiones.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#proyectos" class="btn-primary">
+                        Ver proyectos
+                    </a>
+
+                    <a
+                        href="https://www.linkedin.com/in/walevez/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-secondary"
+                    >
+                        LinkedIn ↗
+                    </a>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div class="hero-stat">
+                        <div class="stat-num">15<span>+</span></div>
+                        <div class="stat-label">Años de experiencia</div>
+                    </div>
+
+                    <div class="hero-stat">
+                        <div class="stat-num">100<span>%</span></div>
+                        <div class="stat-label">Registros auditados</div>
+                    </div>
+
+                    <div class="hero-stat">
+                        <div class="stat-num">2<span>+</span></div>
+                        <div class="stat-label">Casos publicados</div>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-      </div>
-    </div>
 
-    <div>
-      <div class="stack-panel">
-        <div class="panel-label">// Áreas de trabajo</div>
-        <div class="stack-group">
-          <span class="stack-group-title">Business Analysis</span>
-          <div class="stack-tags">
-            <span>Process Improvement</span><span>KPI Analysis</span><span>Requirements</span>
-          </div>
+    </section>
+
+
+
+    <!-- =========================================================
+         SOBRE MÍ
+    ========================================================== -->
+
+    <section class="section-alt" id="sobre-mi">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div>
+
+                    <div class="section-tag">Sobre mí</div>
+
+                    <h2 class="section-title">
+                        Negocio, procesos y <span>tecnología</span>
+                    </h2>
+
+                    <div class="section-divider"></div>
+
+                    <div class="about-text">
+
+                        <p class="about-desc">
+                            Soy Walter Emanuel Chavez. Durante mi carrera participé
+                            en la mejora de procesos administrativos y operativos,
+                            conciliación de información, gestión documental y soporte
+                            a la toma de decisiones.
+                        </p>
+
+                        <p class="about-desc">
+                            Actualmente curso la Tecnicatura en Ciencias de Datos
+                            e Inteligencia Artificial y complemento mi experiencia
+                            con Business Analysis, SQL, Python, Power BI y automatización.
+                            Mi objetivo es actuar como puente entre el negocio y la tecnología.
+                        </p>
+
+                    </div>
+
+
+                    <div class="edu-block">
+
+                        <div class="edu-label">
+                            Educación formal
+                        </div>
+
+                        <div class="edu-title">
+                            Tecnicatura en Ciencias de Datos e IA
+                        </div>
+
+                        <div class="edu-inst">
+                            Instituto Superior Santo Domingo · Tucumán, Argentina
+                        </div>
+
+                        <div class="edu-meta">
+
+                            <span class="edu-badge">
+                                4.º semestre · En curso
+                            </span>
+
+                            <span class="edu-year">
+                                2025 – 2027
+                            </span>
+
+                        </div>
+
+                        <div class="edu-subjects">
+                            <span>Business Analysis</span>
+                            <span>Estadística</span>
+                            <span>Bases de datos</span>
+                            <span>Python</span>
+                            <span>Visualización</span>
+                            <span>IA aplicada</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="stack-panel">
+
+                        <div class="panel-label">
+                            Áreas de trabajo
+                        </div>
+
+
+                        <div class="stack-group">
+
+                            <span class="stack-group-title">
+                                Business Analysis
+                            </span>
+
+                            <div class="stack-tags">
+                                <span>Process Improvement</span>
+                                <span>KPI Analysis</span>
+                                <span>Requirements</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="stack-group">
+
+                            <span class="stack-group-title">
+                                Data & BI
+                            </span>
+
+                            <div class="stack-tags">
+                                <span>SQL</span>
+                                <span>Power BI</span>
+                                <span>Excel</span>
+                                <span>Python</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="stack-group">
+
+                            <span class="stack-group-title">
+                                Sistemas
+                            </span>
+
+                            <div class="stack-tags">
+                                <span>Synagro ERP</span>
+                                <span>SQLite</span>
+                                <span>Streamlit</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="stack-group">
+
+                            <span class="stack-group-title">
+                                Colaboración
+                            </span>
+
+                            <div class="stack-tags">
+                                <span>GitHub</span>
+                                <span>Documentación</span>
+                                <span>Mejora continua</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quote-block">
+                        Comprender el problema correcto es el primer paso
+                        para diseñar una solución que realmente genere valor.
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-        <div class="stack-group">
-          <span class="stack-group-title">Data & BI</span>
-          <div class="stack-tags">
-            <span>SQL</span><span>Power BI</span><span>Excel</span><span>Python</span>
-          </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         EXPERIENCIA
+    ========================================================== -->
+
+    <section id="experiencia">
+
+        <div class="container">
+
+            <div class="section-tag">
+                Experiencia profesional
+            </div>
+
+            <h2 class="section-title">
+                Análisis y mejora de <span>procesos</span>
+            </h2>
+
+            <div class="section-divider"></div>
+
+
+            <div class="experience-card">
+
+                <div class="experience-head">
+
+                    <div>
+
+                        <div class="experience-role">
+                            Analista de Procesos y Operaciones
+                        </div>
+
+                        <div class="experience-company">
+                            Molino El Español S.R.L. · Tucumán, Argentina
+                        </div>
+
+                    </div>
+
+                    <div class="experience-period">
+                        2020 — Actualidad
+                    </div>
+
+                </div>
+
+
+                <p class="experience-summary">
+                    Rol transversal con participación en procesos administrativos,
+                    operativos y de control. Experiencia en análisis de circuitos,
+                    conciliación de información, gestión documental y automatización
+                    de tareas.
+                </p>
+
+
+                <div class="experience-grid">
+
+
+                    <div class="experience-item">
+
+                        <span class="experience-index">01</span>
+
+                        <div>
+                            <h3>Procesos administrativos</h3>
+
+                            <p>
+                                Gestión de facturación, remitos, certificados
+                                y liquidaciones de granos mediante Synagro ERP.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="experience-item">
+
+                        <span class="experience-index">02</span>
+
+                        <div>
+                            <h3>Control y conciliación</h3>
+
+                            <p>
+                                Conciliación de stocks, validación de información
+                                y detección de desvíos entre procesos y sistemas.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="experience-item">
+
+                        <span class="experience-index">03</span>
+
+                        <div>
+                            <h3>Reporting y cumplimiento</h3>
+
+                            <p>
+                                Elaboración de informes internos y presentaciones
+                                para organismos oficiales.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="experience-item">
+
+                        <span class="experience-index">04</span>
+
+                        <div>
+                            <h3>Automatización</h3>
+
+                            <p>
+                                Desarrollo de herramientas para auditoría,
+                                conciliación y visualización de datos con Python,
+                                SQL y Streamlit.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-        <div class="stack-group">
-          <span class="stack-group-title">Sistemas</span>
-          <div class="stack-tags">
-            <span>Synagro ERP</span><span>SQLite</span><span>Streamlit</span>
-          </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         MÉTODO
+    ========================================================== -->
+
+    <section class="section-alt" id="metodo">
+
+        <div class="container">
+
+            <div class="section-tag">
+                Cómo trabajo
+            </div>
+
+            <h2 class="section-title">
+                Del problema al <span>valor</span>
+            </h2>
+
+            <div class="section-divider"></div>
+
+
+            <div
+                class="experience-grid"
+                style="margin-top: 2.5rem;"
+            >
+
+
+                <div class="experience-item">
+
+                    <span class="experience-index">01</span>
+
+                    <div>
+                        <h3>Entender el problema</h3>
+
+                        <p>
+                            Relevar contexto, actores, necesidades y restricciones.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="experience-item">
+
+                    <span class="experience-index">02</span>
+
+                    <div>
+                        <h3>Analizar el proceso</h3>
+
+                        <p>
+                            Detectar cuellos de botella, riesgos y oportunidades
+                            de mejora.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="experience-item">
+
+                    <span class="experience-index">03</span>
+
+                    <div>
+                        <h3>Diseñar la solución</h3>
+
+                        <p>
+                            Traducir necesidades del negocio en requerimientos
+                            claros y accionables.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="experience-item">
+
+                    <span class="experience-index">04</span>
+
+                    <div>
+                        <h3>Medir el impacto</h3>
+
+                        <p>
+                            Validar resultados mediante indicadores,
+                            datos y mejora continua.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-        <div class="stack-group">
-          <span class="stack-group-title">Colaboración</span>
-          <div class="stack-tags">
-            <span>GitHub</span><span>Documentación</span><span>Mejora continua</span>
-          </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         PROYECTOS
+    ========================================================== -->
+
+    <section id="proyectos">
+
+        <div class="container">
+
+            <div class="projects-header">
+
+                <div class="section-tag">
+                    Casos de negocio
+                </div>
+
+                <h2 class="section-title">
+                    Problemas, soluciones e <span>impacto</span>
+                </h2>
+
+                <div class="section-divider"></div>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <!-- CEMT -->
+
+                <article class="project-card">
+
+                    <div class="project-content">
+
+                        <div class="proj-category">
+                            Business Analysis · Process Improvement · Data Reconciliation
+                        </div>
+
+                        <h3 class="proj-title">
+                            Auditoría y Conciliación de Datos CEMT
+                        </h3>
+
+                        <p class="proj-desc">
+                            Caso de Business Analysis orientado a mejorar la confiabilidad
+                            de la información reportada. Se relevó el proceso, se identificaron
+                            riesgos de duplicación y omisión, y se diseñó una solución
+                            automatizada de auditoría, conciliación y visualización.
+                        </p>
+
+
+                        <div class="proj-metrics">
+
+                            <div>
+                                <div class="metric-val">100%</div>
+                                <div class="metric-label">
+                                    Bachadas auditadas
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="metric-val">E2E</div>
+                                <div class="metric-label">
+                                    Proceso analizado
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="metric-val">Min</div>
+                                <div class="metric-label">
+                                    Tiempo de control
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="https://github.com/walevez/cemt-data-audit"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="proj-link"
+                        >
+                            Ver caso en GitHub →
+                        </a>
+
+                    </div>
+
+
+                    <div class="proj-visual">
+
+                        <img
+                            src="https://raw.githubusercontent.com/walevez/cemt-data-audit/main/capturas/screenshot02.jpeg"
+                            alt="Dashboard Streamlit — Control CEMT"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- SUPERSTORE -->
+
+                <article class="project-card">
+
+                    <div class="project-content">
+
+                        <div class="proj-category">
+                            Business Analysis · KPI Analysis · Data Analytics
+                        </div>
+
+                        <h3 class="proj-title">
+                            Superstore Sales Analysis
+                        </h3>
+
+                        <p class="proj-desc">
+                            Caso de análisis comercial enfocado en rentabilidad,
+                            descuentos y tiempos logísticos. Se identificaron
+                            productos con impacto negativo en margen y se formularon
+                            recomendaciones para mejorar decisiones comerciales
+                            y operativas.
+                        </p>
+
+
+                        <div class="proj-metrics">
+
+                            <div>
+                                <div class="metric-val">4</div>
+                                <div class="metric-label">
+                                    Regiones analizadas
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="metric-val">3</div>
+                                <div class="metric-label">
+                                    Insights accionables
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="metric-val">3</div>
+                                <div class="metric-label">
+                                    Recomendaciones
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="https://github.com/walevez/Superstore-Sales-Analysis"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="proj-link"
+                        >
+                            Ver caso en GitHub →
+                        </a>
+
+                    </div>
+
+
+                    <div class="proj-visual">
+
+                        <div class="project-placeholder">
+
+                            <div class="project-placeholder-title">
+                                Superstore Sales Analysis
+                            </div>
+
+                            <div class="project-placeholder-text">
+                                Análisis de rentabilidad, descuentos,
+                                logística y desempeño comercial.
+                            </div>
+
+                            <div class="project-data-labels">
+                                <span>Profitability</span>
+                                <span>KPI</span>
+                                <span>Sales</span>
+                                <span>Logistics</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
         </div>
-      </div>
 
-      <div class="quote-block">
-        <div class="quote-mark">“</div>
-        <div class="quote-text">Comprender el problema correcto es el primer paso para diseñar una solución que realmente genere valor.</div>
-        <div class="quote-mark">”</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
-<!-- EXPERIENCE -->
-<section id="experiencia">
-  <div class="section-tag">// Experiencia profesional</div>
-  <h2 class="section-title">Análisis y mejora de <em>procesos</em></h2>
-  <div class="divider"></div>
 
-  <div class="experience-card">
-    <div class="experience-head">
-      <div>
-        <div class="experience-role">Analista de Procesos y Operaciones</div>
-        <div class="experience-company">Molino El Español S.R.L. · Tucumán, Argentina</div>
-      </div>
-      <div class="experience-period">2020 — Actualidad</div>
-    </div>
+    <!-- =========================================================
+         CERTIFICACIONES
+    ========================================================== -->
 
-    <p class="experience-summary">
-      Rol transversal con participación en procesos administrativos, operativos y de control. Experiencia en análisis de circuitos, conciliación de información, gestión documental y automatización de tareas.
-    </p>
+    <section class="section-alt" id="certificaciones">
 
-    <div class="experience-grid">
-      <div class="experience-item">
-        <span class="experience-index">01</span>
-        <div>
-          <h3>Procesos administrativos</h3>
-          <p>Gestión de facturación, remitos, certificados y liquidaciones de granos mediante Synagro ERP.</p>
+        <div class="container">
+
+            <div class="cert-header">
+
+                <div>
+
+                    <div class="section-tag">
+                        Formación complementaria
+                    </div>
+
+                    <h2 class="section-title">
+                        Formación <span>complementaria</span>
+                    </h2>
+
+                    <p class="cert-intro">
+                        Formación complementaria en análisis de negocio,
+                        datos, visualización y tecnología.
+                    </p>
+
+                </div>
+
+
+                <div class="cert-filters">
+
+                    <button
+                        class="cert-filter active"
+                        onclick="filterCerts('featured', this)"
+                    >
+                        Destacados
+                    </button>
+
+                    <button
+                        class="cert-filter"
+                        onclick="filterCerts('all', this)"
+                    >
+                        Todos · 19
+                    </button>
+
+                    <button
+                        class="cert-filter"
+                        onclick="filterCerts('coderhouse', this)"
+                    >
+                        Coderhouse · 3
+                    </button>
+
+                    <button
+                        class="cert-filter"
+                        onclick="filterCerts('google', this)"
+                    >
+                        Google · 3
+                    </button>
+
+                    <button
+                        class="cert-filter"
+                        onclick="filterCerts('platzi', this)"
+                    >
+                        Platzi · 12
+                    </button>
+
+                    <button
+                        class="cert-filter"
+                        onclick="filterCerts('cisco', this)"
+                    >
+                        Cisco · 1
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="badge-wall" id="badge-wall">
+
+
+                <!-- =================================================
+                     2026
+                ================================================== -->
+
+
+                <a
+                    href="https://pub.coderhouse.com/certificates/e116e5ae-d9e2-430b-94e2-eb99f40fb958?v=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="coderhouse"
+                    data-featured="true"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Coderhouse</span>
+                        <span class="badge-date">Abr. 2026</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Data Analytics
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Analytics</span>
+                        <span>SQL</span>
+                        <span>BI</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://pub.coderhouse.com/certificates/7d500e84-f525-4c29-bb74-55b7e10fd1d9?v=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="coderhouse"
+                    data-featured="true"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Coderhouse</span>
+                        <span class="badge-date">Mar. 2026</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Tableau
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Tableau</span>
+                        <span>Viz</span>
+                        <span>Datos</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://www.coursera.org/account/accomplishments/verify/F0PNXMBFT69G"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="google"
+                    data-featured="true"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Google</span>
+                        <span class="badge-date">Mar. 2026</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Prepare Data for Exploration
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>SQL</span>
+                        <span>Datos</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://www.coursera.org/account/accomplishments/verify/J6QL4AWAWB09"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="google"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Google</span>
+                        <span class="badge-date">Ene. 2026</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Ask Questions to Make Data-Driven Decisions
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Análisis</span>
+                        <span>SQL</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://pub.coderhouse.com/certificates/13e268f6-19f1-41c0-903d-57e91d1cf30f?v=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="coderhouse"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Coderhouse</span>
+                        <span class="badge-date">Ene. 2026</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Excel
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Microsoft Excel</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <!-- =================================================
+                     2025
+                ================================================== -->
+
+
+                <a
+                    href="https://www.coursera.org/account/accomplishments/verify/GMY4PHEMPE9X"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="google"
+                    data-featured="true"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Google</span>
+                        <span class="badge-date">Dic. 2025</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Foundations: Data, Data, Everywhere
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Data Analytics</span>
+                        <span>SQL</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://www.credly.com/badges/1240f0e1-48d7-43ac-b7f5-a4a9701e87d2/linked_in_profile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="cisco"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Cisco</span>
+                        <span class="badge-date">Nov. 2025</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Introduction to Cybersecurity
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Seguridad</span>
+                        <span>Redes</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <!-- =================================================
+                     2023
+                ================================================== -->
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/2793-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                    data-featured="true"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">2023</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Negocios y Data Science
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Data Science</span>
+                        <span>Negocios</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/4036-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Feb. 2023</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Curso Básico de Computadores e Informática
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Fundamentos</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/3639-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Feb. 2023</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Lógica</span>
+                        <span>Estructuras</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/2383-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Feb. 2023</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Pensamiento Lógico: Lenguajes de Programación
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Lógica</span>
+                        <span>Programación</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/4227-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Ene. 2023</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Fundamentos de Python
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Python</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/3223-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Ene. 2023</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Excel: Fundamentos y Formato de Hojas de Cálculo
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Excel</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/3222-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Ene. 2023</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Excel Básico: Tablas y Fórmulas para la Gestión de Datos
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Excel</span>
+                        <span>Datos</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <!-- =================================================
+                     2022
+                ================================================== -->
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/3221-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Nov. 2022</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Pensamiento Lógico: Algoritmos y Diagramas de Flujo
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Lógica</span>
+                        <span>Algoritmos</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/1764-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Ene. 2022</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Introducción al Pensamiento Computacional con Python
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Python</span>
+                        <span>Algoritmos</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <!-- =================================================
+                     2021
+                ================================================== -->
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/2292-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Dic. 2021</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Introducción a la Terminal y Línea de Comandos
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Linux</span>
+                        <span>Terminal</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/2069-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Nov. 2021</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Entorno de Trabajo para Ciencia de Datos con Jupyter y Anaconda
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Python</span>
+                        <span>Jupyter</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/2255-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Nov. 2021</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Python Intermedio: Comprehensions, Lambdas y Manejo de Errores
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Python</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+
+                <a
+                    href="https://platzi.com/p/walevez/curso/2434-course/diploma/detalle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="badge-card"
+                    data-platform="platzi"
+                >
+
+                    <div class="badge-top">
+                        <span class="badge-pill">Platzi</span>
+                        <span class="badge-date">Ago. 2021</span>
+                    </div>
+
+                    <div class="badge-name">
+                        Configuración de Entorno de Desarrollo en Linux
+                    </div>
+
+                    <div class="badge-skills">
+                        <span>Linux</span>
+                        <span>DevEnv</span>
+                    </div>
+
+                    <div class="badge-arrow">→</div>
+
+                </a>
+
+
+            </div>
+
         </div>
-      </div>
-      <div class="experience-item">
-        <span class="experience-index">02</span>
-        <div>
-          <h3>Control y conciliación</h3>
-          <p>Conciliación de stocks, validación de información y detección de desvíos entre procesos y sistemas.</p>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         CONTACTO
+    ========================================================== -->
+
+    <section id="contacto">
+
+        <div class="container">
+
+            <div class="contact-content">
+
+                <div class="section-tag">
+                    Contacto
+                </div>
+
+                <h2 class="section-title">
+                    ¿Hablamos de <span>mejoras?</span>
+                </h2>
+
+                <div class="section-divider"></div>
+
+
+                <p class="contact-text">
+                    Estoy abierto a oportunidades como Business Analyst,
+                    Analista Funcional o BI Analyst, en equipos donde pueda
+                    conectar necesidades de negocio, procesos y tecnología.
+                </p>
+
+
+                <div class="contact-info">
+
+
+                    <div class="contact-item">
+
+                        <span class="contact-icon">GH</span>
+
+                        <a
+                            href="https://github.com/walevez"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            github.com/walevez
+                        </a>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <span class="contact-icon">IN</span>
+
+                        <a
+                            href="https://www.linkedin.com/in/walevez/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            linkedin.com/in/walevez
+                        </a>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <span class="contact-icon">LOC</span>
+
+                        <span>
+                            Tucumán, Argentina
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
         </div>
-      </div>
-      <div class="experience-item">
-        <span class="experience-index">03</span>
-        <div>
-          <h3>Reporting y cumplimiento</h3>
-          <p>Elaboración de informes internos y presentaciones para organismos oficiales.</p>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            WALTER<span>CHAVEZ</span>
         </div>
-      </div>
-      <div class="experience-item">
-        <span class="experience-index">04</span>
-        <div>
-          <h3>Automatización</h3>
-          <p>Desarrollo de herramientas para auditoría, conciliación y visualización de datos con Python, SQL y Streamlit.</p>
+
+        <span class="footer-copy">
+            © 2026 Walter Emanuel Chavez · Tucumán, Argentina
+        </span>
+
+        <div class="footer-links">
+
+            <a
+                href="https://github.com/walevez"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/walevez/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
+
+            <a href="#proyectos">
+                Proyectos
+            </a>
+
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+    </footer>
 
 
-<!-- HOW I WORK -->
-<section class="about" id="metodo">
-  <div class="section-tag">// Cómo trabajo</div>
-  <h2 class="section-title">Del problema al <em>valor</em></h2>
-  <div class="divider"></div>
 
-  <div class="experience-grid">
-    <div class="experience-item">
-      <span class="experience-index">01</span>
-      <div>
-        <h3>Entender el problema</h3>
-        <p>Relevar contexto, actores, necesidades y restricciones.</p>
-      </div>
-    </div>
-    <div class="experience-item">
-      <span class="experience-index">02</span>
-      <div>
-        <h3>Analizar el proceso</h3>
-        <p>Detectar cuellos de botella, riesgos y oportunidades de mejora.</p>
-      </div>
-    </div>
-    <div class="experience-item">
-      <span class="experience-index">03</span>
-      <div>
-        <h3>Diseñar la solución</h3>
-        <p>Traducir necesidades del negocio en requerimientos claros y accionables.</p>
-      </div>
-    </div>
-    <div class="experience-item">
-      <span class="experience-index">04</span>
-      <div>
-        <h3>Medir el impacto</h3>
-        <p>Validar resultados mediante indicadores, datos y mejora continua.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- =========================================================
+         JS — FILTRO DE CERTIFICACIONES
+    ========================================================== -->
 
-<!-- PROJECTS -->
-<section id="proyectos">
-  <div class="projects-header">
-    <div>
-      <div class="section-tag">// Casos de negocio</div>
-      <h2 class="section-title">Problemas, soluciones e <em>impacto</em></h2>
-    </div>
-  </div>
+    <script>
 
-  <div class="projects-grid">
+        function filterCerts(platform, button) {
 
-    <!-- FEATURED — CEMT -->
-    <div class="project-card featured">
-      <div class="project-bar"></div>
-      <div style="display:flex;flex-direction:column;">
-        <div class="proj-tags">
-          <span class="proj-tag accent">Destacado</span>
-          <span class="proj-tag">Business Analysis</span>
-          <span class="proj-tag">Process Improvement</span>
-          <span class="proj-tag">Data Reconciliation</span>
-        </div>
-        <h3 class="proj-title">Auditoría y Conciliación de Datos CEMT</h3>
-        <p class="proj-desc">
-          Caso de Business Analysis orientado a mejorar la confiabilidad de la información reportada. Se relevó el proceso, se identificaron riesgos de duplicación y omisión, y se diseñó una solución automatizada de auditoría, conciliación y visualización.
-        </p>
-        <div class="proj-metrics">
-          <div>
-            <div class="metric-val">100%</div>
-            <div class="metric-label">Bachadas auditadas</div>
-          </div>
-          <div>
-            <div class="metric-val">E2E</div>
-            <div class="metric-label">Proceso analizado</div>
-          </div>
-          <div>
-            <div class="metric-val">Min</div>
-            <div class="metric-label">Tiempo de control</div>
-          </div>
-        </div>
-        <a href="https://github.com/walevez/cemt-data-audit" target="_blank" rel="noopener noreferrer" class="proj-link">Ver en GitHub →</a>
-      </div>
-      <div class="proj-visual screenshot">
-        <img src="https://raw.githubusercontent.com/walevez/cemt-data-audit/main/capturas/screenshot02.jpeg" alt="Dashboard Streamlit — Control CEMT" loading="lazy">
-      </div>
-    </div>
+            document
+                .querySelectorAll(".cert-filter")
+                .forEach(btn => btn.classList.remove("active"));
 
-    <!-- FEATURED — Superstore -->
-    <div class="project-card featured">
-      <div class="project-bar"></div>
-      <div style="display:flex;flex-direction:column;">
-        <div class="proj-tags">
-          <span class="proj-tag">Business Analysis</span>
-          <span class="proj-tag">KPI Analysis</span>
-          <span class="proj-tag">Data Analytics</span>
-        </div>
-        <h3 class="proj-title">Superstore Sales Analysis</h3>
-        <p class="proj-desc">
-          Caso de análisis comercial enfocado en rentabilidad, descuentos y tiempos logísticos. Se identificaron productos con impacto negativo en margen y se formularon recomendaciones para mejorar decisiones comerciales y operativas.
-        </p>
-        <div class="proj-metrics">
-          <div>
-            <div class="metric-val">4</div>
-            <div class="metric-label">Regiones analizadas</div>
-          </div>
-          <div>
-            <div class="metric-val">3</div>
-            <div class="metric-label">Insights accionables</div>
-          </div>
-          <div>
-            <div class="metric-val">3</div>
-            <div class="metric-label">Recomendaciones</div>
-          </div>
-        </div>
-        <a href="https://github.com/walevez/Superstore-Sales-Analysis" target="_blank" rel="noopener noreferrer" class="proj-link">Ver en GitHub →</a>
-      </div>
-      <div class="proj-visual">
-        <div class="bar-chart-bar" style="height:38%"></div>
-        <div class="bar-chart-bar" style="height:55%"></div>
-        <div class="bar-chart-bar" style="height:42%"></div>
-        <div class="bar-chart-bar hi" style="height:78%"></div>
-        <div class="bar-chart-bar" style="height:61%"></div>
-        <div class="bar-chart-bar hi" style="height:91%"></div>
-        <div class="bar-chart-bar" style="height:50%"></div>
-        <div class="bar-chart-bar" style="height:67%"></div>
-        <div class="bar-chart-bar hi" style="height:84%"></div>
-        <div class="bar-chart-bar" style="height:45%"></div>
-        <div class="bar-chart-bar" style="height:72%"></div>
-        <div class="bar-chart-bar hi" style="height:95%"></div>
-      </div>
-    </div>
 
-  </div>
-</section>
+            button.classList.add("active");
 
-<!-- CERTIFICATIONS -->
-<section id="certificaciones" style="background: var(--surface);">
 
-  <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; margin-bottom:2.5rem;">
-    <div>
-      <div class="section-tag">// Formación complementaria</div>
-      <h2 class="section-title">Formación <em>complementaria</em></h2>
-      <p class="cert-intro">Formación complementaria en análisis de negocio, datos, visualización y tecnología.</p>
-    </div>
-    <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
-      <button class="cert-filter active" onclick="filterCerts('featured',this)">Destacados</button>
-      <button class="cert-filter" onclick="filterCerts('all',this)">Ver todos · 19</button>
-      <button class="cert-filter" onclick="filterCerts('coderhouse',this)">Coderhouse · 3</button>
-      <button class="cert-filter" onclick="filterCerts('google',this)">Google · 3</button>
-      <button class="cert-filter" onclick="filterCerts('platzi',this)">Platzi · 12</button>
-      <button class="cert-filter" onclick="filterCerts('cisco',this)">Cisco · 1</button>
-    </div>
-  </div>
+            document
+                .querySelectorAll(".badge-card")
+                .forEach(card => {
 
-  <div class="badge-wall" id="badge-wall">
+                    const match =
+                        platform === "all" ||
+                        (
+                            platform === "featured" &&
+                            card.dataset.featured === "true"
+                        ) ||
+                        card.dataset.platform === platform;
 
-    <!-- RECIENTES PRIMERO — 2026 -->
-    <a href="https://pub.coderhouse.com/certificates/e116e5ae-d9e2-430b-94e2-eb99f40fb958?v=1" target="_blank" rel="noopener noreferrer" class="badge-card featured-cert" data-platform="coderhouse" data-featured="true">
-      <div class="badge-top"><span class="badge-pill coderhouse-badge">Coderhouse</span><span class="badge-date">Abr. 2026</span></div>
-      <div class="badge-name">Data Analytics</div>
-      <div class="badge-skills"><span>Analytics</span><span>SQL</span><span>BI</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow coderhouse-glow"></div>
-    </a>
 
-    <a href="https://pub.coderhouse.com/certificates/7d500e84-f525-4c29-bb74-55b7e10fd1d9?v=1" target="_blank" rel="noopener noreferrer" class="badge-card featured-cert" data-platform="coderhouse" data-featured="true">
-      <div class="badge-top"><span class="badge-pill coderhouse-badge">Coderhouse</span><span class="badge-date">Mar. 2026</span></div>
-      <div class="badge-name">Tableau</div>
-      <div class="badge-skills"><span>Tableau</span><span>Viz</span><span>Datos</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow coderhouse-glow"></div>
-    </a>
+                    card.classList.toggle("hidden", !match);
 
-    <a href="https://www.coursera.org/account/accomplishments/verify/F0PNXMBFT69G" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="google" data-featured="true">
-      <div class="badge-top"><span class="badge-pill google-badge">Google</span><span class="badge-date">Mar. 2026</span></div>
-      <div class="badge-name">Prepare Data for Exploration</div>
-      <div class="badge-skills"><span>SQL</span><span>Datos</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow google-glow"></div>
-    </a>
+                });
 
-    <a href="https://www.coursera.org/account/accomplishments/verify/J6QL4AWAWB09" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="google">
-      <div class="badge-top"><span class="badge-pill google-badge">Google</span><span class="badge-date">Ene. 2026</span></div>
-      <div class="badge-name">Ask Questions to Make Data-Driven Decisions</div>
-      <div class="badge-skills"><span>Análisis</span><span>SQL</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow google-glow"></div>
-    </a>
+        }
 
-    <a href="https://pub.coderhouse.com/certificates/13e268f6-19f1-41c0-903d-57e91d1cf30f?v=1" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="coderhouse">
-      <div class="badge-top"><span class="badge-pill coderhouse-badge">Coderhouse</span><span class="badge-date">Ene. 2026</span></div>
-      <div class="badge-name">Excel</div>
-      <div class="badge-skills"><span>Microsoft Excel</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow coderhouse-glow"></div>
-    </a>
 
-    <!-- 2025 -->
-    <a href="https://www.coursera.org/account/accomplishments/verify/GMY4PHEMPE9X" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="google" data-featured="true">
-      <div class="badge-top"><span class="badge-pill google-badge">Google</span><span class="badge-date">Dic. 2025</span></div>
-      <div class="badge-name">Foundations: Data, Data, Everywhere</div>
-      <div class="badge-skills"><span>Data Analytics</span><span>SQL</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow google-glow"></div>
-    </a>
+        document.addEventListener("DOMContentLoaded", () => {
 
-    <a href="https://www.credly.com/badges/1240f0e1-48d7-43ac-b7f5-a4a9701e87d2/linked_in_profile" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="cisco">
-      <div class="badge-top"><span class="badge-pill cisco-badge">Cisco</span><span class="badge-date">Nov. 2025</span></div>
-      <div class="badge-name">Introduction to Cybersecurity</div>
-      <div class="badge-skills"><span>Seguridad</span><span>Redes</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow cisco-glow"></div>
-    </a>
+            const featuredButton =
+                document.querySelector(".cert-filter.active");
 
-    <!-- 2023 -->
-    <a href="https://platzi.com/p/walevez/curso/2793-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi" data-featured="true">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">2023</span></div>
-      <div class="badge-name">Negocios y Data Science</div>
-      <div class="badge-skills"><span>Data Science</span><span>Negocios</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
+            if (featuredButton) {
+                filterCerts("featured", featuredButton);
+            }
 
-    <a href="https://platzi.com/p/walevez/curso/4036-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Feb. 2023</span></div>
-      <div class="badge-name">Curso Básico de Computadores e Informática</div>
-      <div class="badge-skills"><span>Fundamentos</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
+        });
 
-    <a href="https://platzi.com/p/walevez/curso/3639-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Feb. 2023</span></div>
-      <div class="badge-name">Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones</div>
-      <div class="badge-skills"><span>Lógica</span><span>Estructuras</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
+    </script>
 
-    <a href="https://platzi.com/p/walevez/curso/2383-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Feb. 2023</span></div>
-      <div class="badge-name">Pensamiento Lógico: Lenguajes de Programación</div>
-      <div class="badge-skills"><span>Lógica</span><span>Programación</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
 
-    <a href="https://platzi.com/p/walevez/curso/4227-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Ene. 2023</span></div>
-      <div class="badge-name">Fundamentos de Python</div>
-      <div class="badge-skills"><span>Python</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
-
-    <a href="https://platzi.com/p/walevez/curso/3223-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Ene. 2023</span></div>
-      <div class="badge-name">Excel: Fundamentos y Formato de Hojas de Cálculo</div>
-      <div class="badge-skills"><span>Excel</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
-
-    <a href="https://platzi.com/p/walevez/curso/3222-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Ene. 2023</span></div>
-      <div class="badge-name">Excel Básico: Tablas y Fórmulas para la Gestión de Datos</div>
-      <div class="badge-skills"><span>Excel</span><span>Datos</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
-
-    <!-- 2022 -->
-    <a href="https://platzi.com/p/walevez/curso/3221-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Nov. 2022</span></div>
-      <div class="badge-name">Pensamiento Lógico: Algoritmos y Diagramas de Flujo</div>
-      <div class="badge-skills"><span>Lógica</span><span>Algoritmos</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
-
-    <!-- 2021 -->
-    <a href="https://platzi.com/p/walevez/curso/1764-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Ene. 2022</span></div>
-      <div class="badge-name">Introducción al Pensamiento Computacional con Python</div>
-      <div class="badge-skills"><span>Python</span><span>Algoritmos</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
-
-    <a href="https://platzi.com/p/walevez/curso/2292-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Dic. 2021</span></div>
-      <div class="badge-name">Introducción a la Terminal y Línea de Comandos</div>
-      <div class="badge-skills"><span>Linux</span><span>Terminal</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
-
-    <a href="https://platzi.com/p/walevez/curso/2069-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Nov. 2021</span></div>
-      <div class="badge-name">Entorno de Trabajo para Ciencia de Datos con Jupyter y Anaconda</div>
-      <div class="badge-skills"><span>Python</span><span>Jupyter</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
-
-    <a href="https://platzi.com/p/walevez/curso/2255-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Nov. 2021</span></div>
-      <div class="badge-name">Python Intermedio: Comprehensions, Lambdas y Manejo de Errores</div>
-      <div class="badge-skills"><span>Python</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
-
-    <a href="https://platzi.com/p/walevez/curso/2434-course/diploma/detalle/" target="_blank" rel="noopener noreferrer" class="badge-card" data-platform="platzi">
-      <div class="badge-top"><span class="badge-pill platzi-badge">Platzi</span><span class="badge-date">Ago. 2021</span></div>
-      <div class="badge-name">Configuración de Entorno de Desarrollo en Linux</div>
-      <div class="badge-skills"><span>Linux</span><span>DevEnv</span></div>
-      <div class="badge-arrow">→</div>
-      <div class="badge-glow platzi-glow"></div>
-    </a>
-
-  </div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contacto" style="background: var(--surface);">
-  <div class="contact-content">
-    <div class="section-tag">// Contacto</div>
-    <h2 class="section-title">¿Hablamos de <em>mejoras</em>?</h2>
-    <div class="divider"></div>
-    <p style="color:var(--text-secondary);font-weight:300;line-height:1.75;margin-bottom:0.5rem;">
-      Estoy abierto a oportunidades como Business Analyst, Analista Funcional o BI Analyst, en equipos donde pueda conectar necesidades de negocio, procesos y tecnología.
-    </p>
-    <div class="contact-info">
-      <div class="contact-item">
-        <div class="contact-icon">gh</div>
-        <a href="https://github.com/walevez" target="_blank" rel="noopener noreferrer" style="color:var(--text-secondary);text-decoration:none;">github.com/walevez</a>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">in</div>
-        <a href="https://www.linkedin.com/in/walevez/" target="_blank" rel="noopener noreferrer" style="color:var(--text-secondary);text-decoration:none;">linkedin.com/in/walevez</a>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <span>Tucumán, Argentina</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">WALTER<span>CHAVEZ</span></div>
-  <span class="footer-copy">© 2026 Walter Emanuel Chavez · Tucumán, Argentina</span>
-  <div class="footer-links">
-    <a href="https://github.com/walevez" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a href="https://www.linkedin.com/in/walevez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    <a href="#proyectos">Proyectos</a>
-  </div>
-</footer>
-
-<script>
-  function filterCerts(platform, btn) {
-    document.querySelectorAll('.cert-filter').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.badge-card').forEach((card, i) => {
-      const match =
-        platform === 'all' ||
-        (platform === 'featured' && card.dataset.featured === 'true') ||
-        card.dataset.platform === platform;
-      card.classList.toggle('hidden', !match);
-      if (match) {
-        card.style.animationDelay = (i * 30) + 'ms';
-        card.style.animation = 'none';
-        void card.offsetWidth;
-        card.style.animation = '';
-      }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const featuredButton = document.querySelector('.cert-filter.active');
-    if (featuredButton) filterCerts('featured', featuredButton);
-  });
-</script>
 </body>
 </html>
